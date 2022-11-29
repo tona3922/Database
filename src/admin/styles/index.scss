@@ -1,0 +1,289 @@
+// @font-face {
+//   font-family: Huawei;
+//   src: url("../../../public/font/ja-jp.ttf");
+// }
+
+body {
+  // display: flex;
+  margin: 0;
+  font-family: Huawei;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: auto;
+}
+*{
+  box-sizing: border-box;
+}
+div {
+  font-family: Huawei;
+}
+.page{
+  display: flex;
+  // flex-flow: row;
+  // flex-direction: row;
+  // width: 100vw;
+  // overflow-x: auto;
+  nav {
+    all: initial;
+    z-index: 1;
+    display: flex;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: sticky;
+    top: 0;
+    bottom:0;
+    align-self: flex-start;
+    width: 295px;
+    flex-shrink: 0;
+    height:100vh;
+    // overflow-y:auto;
+    flex-direction: column;
+    align-items: center;
+    // overflow-x: hidden;
+    // justify-content: center;
+
+    .logo {
+      margin-top: 20px;
+      img {
+        background-color: transparent;
+        display: flex;
+        height: 5em;
+      }
+    }
+    .routes{
+      // position: relative;
+      // float: center;
+      margin-top: auto;
+      margin-bottom: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0px;
+      gap: 20px;
+      
+      .nav--route{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 10px;
+        gap: 11px;
+        &:focus, &:hover, &:visited, &:link {
+          text-decoration: none;
+          color: black;
+        }
+        img{
+          margin-left: 15px;
+          height: 30px;
+        }
+        span{
+          text-decoration: none;
+          width: 180px;
+          font-weight: 1;
+          // font-size:
+        }
+      }
+    }
+  }
+  .main{
+    // padding-left: 295px;
+    position: stick;
+    // width: 80%;
+    display: flex;
+    flex-flow: column;
+    flex-grow: 10;
+    // width: 95%;
+    .top--header{
+      background-color: #ffffff;
+      display: flex;
+      flex-flow: row;
+      width: 100%;
+      // flex-grow: 1;
+      margin: 0;
+      position: sticky;
+      height: 103px;
+      top: 0; bottom: 0;
+      align-self: flex-start;
+      h1 {
+        width: 450px;
+        margin: 3vh 3vw;
+        font-size: 40px;
+        overflow-x: default;
+      }
+      .search--container{
+        // min-width: min-content;
+        margin-top: 3vh;
+        padding-bottom: 0;
+        margin-left: auto;
+        margin-right: 12vw;
+        border-bottom: 1px solid black;
+        height: 40px;
+        form {
+          display: flex;
+          justify-content: center;
+          input{
+            width: 300px;
+            height: 40px;
+            font-family: Huawei;
+            outline: 0px;
+            font-size: 1em;
+            border-width: 0 0 0 0;
+            border-color: #00000053;
+            background-color: transparent;
+          }
+          button{
+            padding:0;
+            background-color: transparent;
+            border: none;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            font-size: 2em;
+          }
+        }
+      }
+    }
+
+    .content {
+      // margin-top: 300px;
+      margin-top: 0;
+    }
+  }
+}
+.active{
+  background: #E9FD06;
+  border-radius: 5px;
+  transition: all 1.5s ease;
+}
+
+
+
+// nav > .splitBox {
+//   display: flex;
+//   width: 33.333333333333333333333%;
+//   align-items: center;
+//   justify-content: center;  
+// }
+// nav > div > img {
+//   margin: 0;
+//   height : 3em;
+// }
+
+// nav > div > h2 {
+//   color: white;
+//   margin: auto;
+//   font-size: 1.5em;
+//   font-weight:lighter;
+//   padding: 1em 1em 1em 1em;
+//   margin: 0;
+// }
+
+// nav > div> h2:hover{
+//   background: #d0f0fb;
+//   color: #118ab2;
+//   transition: all 0.5s ease;
+// }
+
+// .input-wrapper {
+//   width: 600px;
+//   margin: 0;
+//   padding-left: 1em
+// }
+
+// .input-highlight {
+//   font-size: 20px;
+//   user-select: none;
+//   line-height: 30px;
+//   border-top: 3px solid white;
+//   position: absolute;
+//   left: 0;
+//   bottom: 0;
+//   max-width: 100%;
+//   height: 0;
+//   color: transparent;
+//   font-family: Huawei;
+//   overflow: hidden;
+// }
+
+// nav > div > input {
+//   position: relative;
+//   margin: 0 0 0 0;
+//   border-radius: 0;
+//   width: 400px;
+//   line-height: 20px;
+//   background-color: transparent;
+//   color: white;
+//   font-size: 1.5em;
+//   font-family: Huawei;
+//   border: none;
+//   outline: none;
+//   border-bottom: 2px solid #d0f0fb;
+//   font-family: Huawei;
+
+//   &:focus {
+//     + .input-highlight {
+//       border-top: 3px solid #fbc91b;
+//     }
+//   }
+// }
+
+// nav > div > button {
+//   float: left;
+//   width: 0%;
+//   padding: 16.5px;
+//   background: url("../assets/img/search_logo.png");
+//   background-size: cover;
+//   color: white;
+//   font-size: 1.5em;
+//   border: none;
+//   cursor: pointer;
+// }
+
+// .page{
+//   margin: 3em auto;
+//   width:996px;
+// }
+
+// .trending-books {
+//   width:100%;
+//   display: flex;
+//   align-items: center;
+//   flex-flow: row wrap;
+// }
+
+// .book-card{
+//   width: 300px;
+//   display: flex;
+//   margin: 1em;
+// }
+// .book-image {
+//   height: 150px;
+//   border-radius: 5px;
+//   transition: transform .2s;
+//   box-shadow: 2px 2px 5px ;
+// }
+
+// .book-image:hover{
+//   transform: scale(1.05);
+// }
+// .book-info {
+//   display: flex;
+//   flex-direction: column;
+//   padding-left: 0.75em;
+//   justify-content: center;
+// }
+// .book-title {
+//   margin: 0.5em 0;
+//   font-size: 1em;
+// }
+// .book-author {
+//   margin: 0.5em 0;
+//   font-size: 0.85em;
+//   font-weight: lighter;
+// }
+
+// .book-price {
+//   margin: 0.5em 0;
+//   font-size: 0.85em;
+//   font-weight: lighter;
+//   color: blue;
+// }

@@ -1,0 +1,27 @@
+.mainBox {
+  max-width: 70%;
+  margin: 25px auto;
+  background-color: #faecdb;
+  overflow: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.mainButton {
+  border-radius: 10px;
+  margin: 0 5px;
+  padding: 10px;
+  border: none;
+  opacity: 0.9;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.mainButton:hover {
+  opacity: 0.7;
+}
+.mainButton:active {
+  opacity: 1;
+}
+.mainButton > img {
+  width: 30px;
+  vertical-align: middle;
+  margin-right: 5px;
+}

@@ -1,0 +1,148 @@
+.card {
+  position: relative;
+  align-items: center;
+  width: 100%;
+  border: 1px solid rgba(180, 180, 180, 0.842);
+  padding: 10px;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: black;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f1de;
+}
+.viewbooktitle {
+  margin: 0 auto;
+  border-radius: 20px;
+  width: 60%;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #eae0d5;
+}
+
+.filter{
+  display: block;
+  background: #ddbea9;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  width: 144px;
+  height: 53px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+
+.uppercard {
+  display: flex;
+  gap: 10px;
+}
+.bookimg img {
+  width: 150px;
+  height: 180px;
+  object-position: center;
+  margin: auto;
+}
+.bookinfo {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.bookinfo em {
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+.bookinfo span {
+  font-size: 20px;
+}
+
+.container {
+  max-height: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 30px;
+  margin: 10px 30px;
+  overflow-y: scroll;
+}
+.downcard {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+}
+.shopping-bag {
+  background-color: #386641;
+  color: white;
+  border-width: 1px;
+  border-radius: 10px;
+  border-color: beige;
+  height: 40px;
+  width: 50%;
+  cursor:pointer;
+}
+.shopping-bag:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.review {
+  background-color: #14213d;
+  color: white;
+  border-width: 1px;
+  border-radius: 10px;
+  border-color: beige;
+  height: 40px;
+  width: 40%;
+  cursor: pointer;
+}
+.review:hover {
+  background-color: rgb(97, 97, 97);
+}
+
+.addbook{
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.closecard{
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.closecard:hover{
+  color:rgb(97, 97, 97)
+}
+
+.editcard{
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 5px;
+  margin-right: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.editcard:hover{
+  color:rgb(97, 97, 97)
+}
+
+.filter-icon{
+  display: block;
+}

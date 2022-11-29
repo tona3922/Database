@@ -1,0 +1,20 @@
+.card{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.bookupdate{
+    margin: auto 0;
+    margin-right: 100px;
+    max-width: 100%;
+}
+
+.bookupdate img{
+    width: 300px;
+    height: 400px;
+}
+
+.register-label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-right: 5px;
+}

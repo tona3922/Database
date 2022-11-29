@@ -1,0 +1,12 @@
+.topbooktitle {
+  margin: 0 auto;
+  border-radius: 20px;
+  width: 60%;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #eae0d5;
+}
