@@ -113,6 +113,7 @@
 .login-btn {
     margin-left: calc(100%/4) !important;
     background-color: #FFC4AE;
+    cursor: pointer;
 }
 
 .update-pw-btn {

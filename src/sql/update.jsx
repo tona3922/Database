@@ -53,11 +53,11 @@ export const Updatebook = (props) => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-
     try {
       await axios.put('http://localhost:8800/books/'+ bookId , book);
       navigate("/");
     } catch (err) {
+      alert(err);
       console.log(err);
       setError(true);
     }
@@ -118,11 +118,11 @@ export const Updatebook = (props) => {
       <button className="shopping-bag" onClick={handleClick}>
         Update <FaShoppingBag />
       </button>
-      <button className="review">
        <Link to="/" style={{ color: "inherit", textDecoration: "none" }} >
+      <button className="review">
        Cancel<FaBook />
-       </Link>
       </button>
+       </Link>
     </div>
   </div>
   );

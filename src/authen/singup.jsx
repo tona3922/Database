@@ -20,7 +20,6 @@ export const Signup = (props) => {
       bdate: "",
       role: "",
     });
-   // console.log(info);
 
     const handleSubmit = () => {
      // axios.post('http://localhost:3000/signup',info)

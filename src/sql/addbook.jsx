@@ -1,43 +1,47 @@
-import React ,{useState} from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../img/home/logo.png";
 import signup_icon from "../img/signup-icon.png";
 import back_icon from "../img/back.png";
-import axios from 'axios';
+import axios from "axios";
 import "./addbook.css";
 
 export const Addbook = (props) => {
-    const [book, setBook] = useState({
-      book_name: "",
-      book_id: "",
-      edition: "",
-      quanity: "",
-      bAuthor_id: "",
-      bCat_id: "",
-      price: ""
-    });
-const handleChange = (e) =>{
-  setBook((state) => ({
-    ...state, 
-    [e.target.name]: e.target.value
-  }))
-}
+  const user = JSON.parse(window.localStorage.getItem('USER'));
 
-const navigate = useNavigate();
+  const [book, setBook] = useState({
+    book_name: "",
+    book_id: "",
+    edition: "",
+    quanity: "",
+    bAuthor_id: "",
+    bCat_id: "",
+    price: "",
+    bProvider_id: user.id,
+  });
 
-const handleClick = async (e) => {
-  e.preventDefault();
-  try{
-    await axios.post("http://localhost:8800/books",book)
-    navigate("/")
-    //console.log(res);
-  }catch(err){
-    console.log(err);
-    alert("You can not insert the book")
-  }
-}
+  const handleChange = (e) => {
+    setBook((state) => ({
+      ...state,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
-console.log(book);
+  const navigate = useNavigate();
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+    try{
+      await axios.post("http://localhost:8800/books",book)
+      navigate("/")
+      //console.log(res);
+    }catch(err){
+      console.log(err);
+      alert("You can not insert the book")
+    }
+  };
+
+  //console.log(book);
 
   return (
     <div className="signup-page">
@@ -47,9 +51,7 @@ console.log(book);
           <h1>ADD NEW BOOK</h1>
         </header>
         <div className="signup-content">
-          <label className="signup-label">
-            Tên sách
-          </label>
+          <label className="signup-label">Tên sách</label>
           <input
             name="book_name"
             className="signup-input"
@@ -57,9 +59,7 @@ console.log(book);
             placeholder="book-name"
             onChange={handleChange}
           />
-          <label className="signup-label">
-            Mã sách
-          </label>
+          <label className="signup-label">Mã sách</label>
           <input
             name="book_id"
             className="signup-input"
@@ -67,45 +67,35 @@ console.log(book);
             placeholder="book-id"
             onChange={handleChange}
           />
-          <label className="signup-label">
-            Xuất bản
-          </label>
+          <label className="signup-label">Xuất bản</label>
           <input
             name="edition"
             className="signup-input"
             type="text"
             onChange={handleChange}
           />
-           <label className="signup-label">
-            Số lượng
-          </label>
+          <label className="signup-label">Số lượng</label>
           <input
             name="quanity"
             className="signup-input"
             type="text"
             onChange={handleChange}
           />
-           <label className="signup-label">
-            Author ID
-          </label>
+          <label className="signup-label">Author ID</label>
           <input
             name="bAuthor_id"
             className="signup-input"
             type="text"
             onChange={handleChange}
           />
-           <label className="signup-label">
-            Category ID
-          </label>
+          <label className="signup-label">Category ID</label>
           <input
             name="bCat_id"
             className="signup-input"
             type="text"
             onChange={handleChange}
           />
-           <label className="signup-label">
-            Price
-          </label>
+          <label className="signup-label">Price</label>
           <input
             name="price"
             className="signup-input"
@@ -119,11 +109,10 @@ console.log(book);
                 Cancel
               </button>
             </Link>
-              <button className="btn signup-btn" onClick={handleClick}>
-                <img src={signup_icon} alt="" />
-                Add
-              </button>
-
+            <button className="btn signup-btn" onClick={handleClick}>
+              <img src={signup_icon} alt="" />
+              Add
+            </button>
           </div>
         </div>
       </div>

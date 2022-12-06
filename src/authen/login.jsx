@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { json, Link, useNavigate } from "react-router-dom";
 import { Info_input } from "./register_info";
 import logo from "../img/home/logo.png";
 import login_icon from "../img/login-icon.png";
@@ -10,18 +10,64 @@ import "./login.css";
 
 export const Login = () => {
 
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+    role:"",
+    id:"",
+  })
 
-  const displayModal = () => {
-    const modal = document.querySelector(".modal-forgetpw");
-    modal.classList.add("open");
-  };
-  const removeModal = () => {
-    const modal = document.querySelector(".modal-forgetpw.open");
-    modal.classList.remove("open");
-  };
-  // const handleSubmit = () => {
-  //   axois.post("http://localhost:3000/login");
-  // };
+  const [account, setAccount] = useState([]);
+  const [flag, setFlag] = useState(false);
+
+  const handleChange = (e) => {
+    setUser( state => ({
+      ...state,
+      [e.target.name]: e.target.value
+    }))
+  }
+
+
+  //localStorage.removeItem('USER');
+
+  const compareAccount = () => {
+    account.forEach(item => {
+      if(item.acc_name === user.username && item.passwords === user.password){
+        setFlag(true)
+        setUser(state => ({
+          ...state,
+          role: item.roles,
+          id: item.acc_id
+        }))
+      }
+    })
+  }
+  setTimeout(compareAccount,1000);
+
+  const handleClick = ()=>{
+     if(flag === false) alert("Your account is not exist");
+  }
+
+  const handleLogin = ()=>{
+     window.localStorage.setItem('USER', JSON.stringify(user));
+  }
+
+  useEffect(()=>{
+    const fetchedBook = async ()=>{
+      try{
+        const res = await axios.get("http://localhost:8800/login")
+        setAccount(res.data)
+      }catch(err){
+        console.log(err)
+      }
+    }
+    fetchedBook();
+  },[])
+
+    console.log(account);
+    console.log(flag);
+    console.log(user);
+
   return (
     <div>
       <div className="login-page">
@@ -32,13 +78,13 @@ export const Login = () => {
           </header>
           <div className="login-content">
             <label className="login-label" htmlFor="username">
-              Tên đăng nhập
-            </label>
+              Tên đăng nhập       </label>
             <input
               name="username"
               className="login-input"
               type="text"
               placeholder="Tên đăng nhập"
+              onChange={handleChange}
             />
             <label className="login-label" htmlFor="password">
               Mật khẩu
@@ -48,23 +94,33 @@ export const Login = () => {
               className="login-input"
               type="password"
               placeholder="Mật khẩu"
+              onChange={handleChange}
             />
             <div className="button-container">
               <Link to="/">
-                <button className="btn back-btn">
+                <button className="btn back-btn" >
                   <img src={back_icon} alt="" />
                   Quay lại
                 </button>
               </Link>
-              <button className="btn login-btn">
-                <img src={login_icon} alt="" />
-                Đăng nhập
-              </button>
+             {flag ? 
+             ( <Link to="/" state = {user.role}>
+             <button className="btn login-btn" onClick={handleLogin}>
+                 <img src={login_icon} alt="" />
+                 Đăng nhập
+             </button>
+             </Link>)
+             : (<button className="btn login-btn" onClick={handleClick}>
+             <img src={login_icon} alt="" />
+             Đăng nhập
+         </button>)
+             }
+              
             </div>
             <div className="login-text">
               <p>
                 Quên mật khẩu?{" "}
-                <button onClick={displayModal} className="update-pw-btn">
+                <button  className="update-pw-btn">
                   Cập nhật mật khẩu
                 </button>
               </p>
@@ -72,28 +128,6 @@ export const Login = () => {
                 Chưa có tài khoản? <Link to="/signup">Đăng ký</Link>
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-      <div className="modal-forgetpw">
-        <div className="modal-container">
-          <header className="modal-header">
-            <h1>CẬP NHẬT MẬT KHẨU</h1>
-          </header>
-          <div className="modal-content">
-            <Info_input labelName="Tên đăng nhập" type="text" />
-            <Info_input labelName="Mật khẩu mới" type="password" />
-            <Info_input labelName="Xác nhận mật khẩu mới" type="password" />
-          </div>
-          <div className="button-container">
-            <button onClick={removeModal} className="btn-reg back-btn">
-              <img src={back_icon} alt="" />
-              Quay lại
-            </button>
-            <button className="btn-reg confirm-btn">
-              <img src={ok_icon} alt="" />
-              Xác nhận
-            </button>
           </div>
         </div>
       </div>

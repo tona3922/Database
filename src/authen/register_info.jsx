@@ -1,5 +1,6 @@
+import axios from 'axios';
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import back_icon from "../img/back.png";
 import ok_icon from "../img/button/ok.png";
 import "./register_info.css";
@@ -39,10 +40,19 @@ export const Register_info = (props) => {
   console.log(info);
   
   
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   setInfo(JSON.parse(localStorage.getItem("INFO")));
-  // }, []);
+  const handleClick = async (e) => {
+    e.preventDefault();
+    try{
+      const res = await axios.post("http://localhost:8800/account",info)
+      console.log(res);
+      navigate("/")
+    }catch(err){
+      console.log(err);
+      alert("You can not create account")
+    }
+  }
 
   return (
     <div className="register-page">
@@ -140,18 +150,6 @@ export const Register_info = (props) => {
             }
           />
           <Info_input
-            labelName="Email"
-            type="text"
-            onChange={(e) =>
-              setInfo((state) => {
-                return {
-                  ...state,
-                  email: e.target.value,
-                };
-              })
-            }
-          />
-          <Info_input
             labelName="Địa chỉ"
             type="text"
             onChange={(e) =>
@@ -170,7 +168,8 @@ export const Register_info = (props) => {
                 Quay lại
               </button>
             </Link>
-            <button className="btn-reg confirm-btn">
+            <Link to="/" userRole={info.role}></Link>
+            <button className="btn-reg confirm-btn" onClick={handleClick}>
               <img src={ok_icon} alt="" />
               Xác nhận
             </button>

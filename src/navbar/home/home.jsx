@@ -1,4 +1,5 @@
 import React from "react";
+import {  useLocation } from "react-router-dom"
 import logo from "../../img/home/logo.png";
 import facebook from "../../img/home/facebook.png";
 import instagram from "../../img/home/instagram.png";
@@ -15,10 +16,10 @@ import { Topbook } from "./topbook";
 
 import "./home.css";
 
-export const Home = () => {
+export const Home = (props) => {
   return (
     <div className="homepage">
-      <Uppernav />
+      <Uppernav/>
       <div className="introHome">
         <img src={logo} alt="#" />
         <a href="#topbook">
@@ -74,7 +75,7 @@ export const Home = () => {
         </div>
       </div>
       <div id="viewbook" className="viewbook">
-        <Viewbook />
+        <Viewbook role={location.state}/>
       </div>
       <hr></hr>
       <div className="footer">

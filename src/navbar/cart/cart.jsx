@@ -8,6 +8,7 @@ import minusButton from "../../img/button/minus.png";
 import plusButton from "../../img/button/plus.png";
 import quitButton from "../../img/button/quit.png";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 // Note: chưa có đường link quay lại trang trước, link tới trang xác nhận đơn
 
@@ -46,6 +47,10 @@ export function Cart(props) {
   const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
   const shippingPrice = itemsPrice < 300000 ? itemsPrice * 0.2 : 0;
   const totalPrice = itemsPrice + shippingPrice;
+
+  const {cart, setCart} = useState([]);
+ 
+  
 
   return (
     <>
